@@ -8,7 +8,6 @@ contract voting{
         string name;
         uint votes;
         bool isRegistered;
-        address adr;
     }
 
     mapping(string => candidate) candidates;
@@ -17,7 +16,7 @@ contract voting{
 
     function register_candidate(string memory Name) public {
         require(!candidates[Name].isRegistered, "Candidate is already registered");
-        candidates[Name] = candidate(Name, 0, true, msg.sender);
+        candidates[Name] = candidate(Name, 0, true);
         candidateList.push(Name);
     }
 
